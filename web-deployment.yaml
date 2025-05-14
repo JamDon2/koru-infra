@@ -17,7 +17,7 @@ spec:
         - name: ghcr-creds
       containers:
         - name: koru-web
-          image: 'ghcr.io/JamDon2/koru-web:'
+          image: "ghcr.io/JamDon2/koru-web:latest"
           ports:
             - containerPort: 8000
           resources:
