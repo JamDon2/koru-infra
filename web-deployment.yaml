@@ -20,6 +20,9 @@ spec:
           image: "ghcr.io/jamdon2/koru-web:sha-63027a8"
           ports:
             - containerPort: 8000
+          env:
+            - name: API_URL
+              value: "https://koru.jamdon2.dev/api"
           resources:
             requests:
               memory: "256Mi"
