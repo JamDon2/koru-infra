@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: koru-api
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: koru-api
+  template:
+    metadata:
+      labels:
+        app: koru-api
+    spec:
+      imagePullSecrets:
+        - name: ghcr-creds
+      containers:
+        - name: koru-api
+          image: ghcr.io/jamdon2/koru-api:latest
+          ports:
+            - containerPort: 8000
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
