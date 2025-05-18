@@ -26,6 +26,13 @@ spec:
                 secretKeyRef:
                   name: koru-api-secret
                   key: JWT_SECRET
+            - name: REDIS_HOST
+              value: redis-master.database-services.svc.cluster.local
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: koru-api-secret
+                  key: REDIS_PASSWORD
           resources:
             requests:
               memory: "256Mi"
