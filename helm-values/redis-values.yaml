@@ -1,0 +1,27 @@
+architecture: standalone
+
+auth:
+  enabled: true
+
+  existingSecret: "redis-auth"
+  existingSecretPasswordKey: "redis-password"
+
+master:
+  persistence:
+    enabled: true
+    storageClass: "longhorn"
+    size: 5Gi
+
+  resources:
+    requests:
+      cpu: "100m"
+      memory: "256Mi"
+    limits:
+      cpu: "500m"
+      memory: "512Mi"
+
+replica:
+  replicaCount: 0
+
+metrics:
+  enabled: false
