@@ -7,7 +7,6 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
-
   sources:
     - repoURL: https://charts.bitnami.com/bitnami
       chart: redis
@@ -22,7 +21,6 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: database-services
-
   syncPolicy:
     automated:
       prune: true
