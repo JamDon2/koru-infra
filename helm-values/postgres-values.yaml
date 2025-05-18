@@ -1,0 +1,17 @@
+architecture: standalone
+
+auth:
+  enabled: true
+  existingSecret: "postgres-auth"
+  secretKeys:
+    adminPasswordKey: "postgresPassword"
+primary:
+  persistence:
+    enabled: true
+    storageClass: "longhorn"
+    size: 5Gi
+  resourcesPreset: "small"
+replica:
+  replicaCount: 0
+metrics:
+  enabled: false
