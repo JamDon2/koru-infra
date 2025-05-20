@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: koru-api-worker
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: koru-api-worker
+  template:
+    metadata:
+      labels:
+        app: koru-api-worker
+    spec:
+      imagePullSecrets:
+        - name: ghcr-creds
+      containers:
+        - name: koru-api-worker
+          image: "ghcr.io/jamdon2/koru-api:sha-5c98953"
+          command: ["celery"]
+          args:
+            [
+              "-A",
+              "api.core.celery",
+              "worker",
+              "--loglevel=info",
+              "-P",
+              "gevent",
+            ]
+          env:
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: koru-api-secret
+                  key: DATABASE_URL
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: koru-api-secret
+                  key: JWT_SECRET
+            - name: REDIS_HOST
+              value: redis-master.database-services.svc.cluster.local
+            - name: REDIS_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: koru-api-secret
+                  key: REDIS_PASSWORD
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "200m"
+            limits:
+              memory: "1Gi"
+              cpu: "1"
