@@ -17,7 +17,7 @@ spec:
         - name: ghcr-creds
       containers:
         - name: koru-email
-          image: "ghcr.io/jamdon2/koru-email:sha-2ad990e"
+          image: "ghcr.io/jamdon2/koru-email:sha-220e854"
           ports:
             - containerPort: 8000
           env:
