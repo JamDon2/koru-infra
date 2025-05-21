@@ -38,6 +38,15 @@ spec:
                 secretKeyRef:
                   name: koru-api-secret
                   key: REDIS_PASSWORD
+            - name: RABBITMQ_HOST
+              value: rabbitmq.rabbitmq.svc.cluster.local
+            - name: RABBITMQ_USER
+              value: user
+            - name: RABBITMQ_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: koru-api-secret
+                  key: RABBITMQ_PASSWORD
           resources:
             requests:
               memory: "256Mi"
