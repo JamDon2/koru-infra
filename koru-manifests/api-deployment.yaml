@@ -47,6 +47,11 @@ spec:
                 secretKeyRef:
                   name: koru-api-secret
                   key: RABBITMQ_PASSWORD
+            - name: HCAPTCHA_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: koru-api-secret
+                  key: HCAPTCHA_SECRET
           resources:
             requests:
               memory: "256Mi"
