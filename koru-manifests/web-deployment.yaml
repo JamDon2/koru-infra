@@ -23,8 +23,6 @@ spec:
           env:
             - name: API_URL
               value: "https://koru.jamdon2.dev/api"
-            - name: NEXT_PUBLIC_HCAPTCHA_SITEKEY
-              value: "e8140486-54b8-48da-9ec0-58aa1b868c0c"
           resources:
             requests:
               memory: "256Mi"

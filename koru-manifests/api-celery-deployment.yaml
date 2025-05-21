@@ -46,6 +46,8 @@ spec:
                 secretKeyRef:
                   name: koru-api-secret
                   key: REDIS_PASSWORD
+            - name: HCAPTCHA_SITEKEY
+              value: "e8140486-54b8-48da-9ec0-58aa1b868c0c"
             - name: HCAPTCHA_SECRET
               valueFrom:
                 secretKeyRef:
