@@ -1,0 +1,25 @@
+architecture: standalone
+
+auth:
+  existingPasswordSecret: "rabbitmq-auth"
+master:
+  persistence:
+    enabled: true
+    storageClass: "longhorn"
+    size: 5Gi
+  resources:
+    requests:
+      cpu: "100m"
+      memory: "256Mi"
+    limits:
+      cpu: "500m"
+      memory: "512Mi"
+ingress:
+  enabled: true
+  pathType: Prefix
+  hostname: rabbitmq.k3s.jamdon2.dev
+  tls: true
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+    traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
