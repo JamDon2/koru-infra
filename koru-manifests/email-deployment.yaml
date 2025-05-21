@@ -21,23 +21,18 @@ spec:
           ports:
             - containerPort: 8000
           env:
-            - name: DATABASE_URL
+            - name: RESEND_API_KEY
               valueFrom:
                 secretKeyRef:
                   name: koru-email-secret
-                  key: DATABASE_URL
-            - name: JWT_SECRET
+                  key: RESEND_API_KEY
+            - name: RABBITMQ_HOST
+              value: rabbitmq.rabbitmq.svc.cluster.local
+            - name: RABBITMQ_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: koru-email-secret
-                  key: JWT_SECRET
-            - name: REDIS_HOST
-              value: redis-master.database-services.svc.cluster.local
-            - name: REDIS_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: koru-email-secret
-                  key: REDIS_PASSWORD
+                  key: RABBITMQ_PASSWORD
           resources:
             requests:
               memory: "256Mi"
