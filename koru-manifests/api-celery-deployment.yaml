@@ -17,7 +17,7 @@ spec:
         - name: ghcr-creds
       containers:
         - name: koru-api-worker
-          image: "ghcr.io/jamdon2/koru-api:sha-126435a"
+          image: "ghcr.io/jamdon2/koru-api:sha-e7385d7"
           command: ["celery"]
           args: ["-A", "api.core.celery", "worker", "--loglevel=info", "-P", "gevent"]
           env:

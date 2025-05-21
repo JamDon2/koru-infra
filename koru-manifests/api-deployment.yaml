@@ -17,7 +17,7 @@ spec:
         - name: ghcr-creds
       containers:
         - name: koru-api
-          image: "ghcr.io/jamdon2/koru-api:sha-126435a"
+          image: "ghcr.io/jamdon2/koru-api:sha-e7385d7"
           ports:
             - containerPort: 8000
           env:
