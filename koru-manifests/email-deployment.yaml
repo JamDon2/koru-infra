@@ -28,6 +28,8 @@ spec:
                   key: RESEND_API_KEY
             - name: RABBITMQ_HOST
               value: rabbitmq.rabbitmq.svc.cluster.local
+            - name: RABBITMQ_USER
+              value: user
             - name: RABBITMQ_PASSWORD
               valueFrom:
                 secretKeyRef:
