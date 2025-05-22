@@ -2,6 +2,7 @@ architecture: standalone
 
 auth:
   existingPasswordSecret: "rabbitmq-auth"
+  existingErlangSecret: "rabbitmq-auth"
 master:
   persistence:
     enabled: true
