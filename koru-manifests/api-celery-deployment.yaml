@@ -29,6 +29,8 @@ spec:
               "gevent",
             ]
           env:
+            - name: APP_URL
+              value: https://koru.jamdon2.dev
             - name: DATABASE_URL
               valueFrom:
                 secretKeyRef:
