@@ -19,7 +19,15 @@ spec:
         - name: koru-api-worker
           image: "ghcr.io/jamdon2/koru-api:sha-37dec04"
           command: ["celery"]
-          args: ["-A", "api.core.celery", "worker", "--loglevel=info", "-P", "gevent"]
+          args:
+            [
+              "-A",
+              "api.core.celery",
+              "worker",
+              "--loglevel=info",
+              "-P",
+              "gevent",
+            ]
           env:
             - name: APP_URL
               value: https://koru.jamdon2.dev
@@ -40,6 +48,15 @@ spec:
                 secretKeyRef:
                   name: koru-api-secret
                   key: REDIS_PASSWORD
+            - name: RABBITMQ_HOST
+              value: rabbitmq.rabbitmq.svc.cluster.local
+            - name: RABBITMQ_USER
+              value: user
+            - name: RABBITMQ_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: koru-api-secret
+                  key: RABBITMQ_PASSWORD
             - name: HCAPTCHA_SITEKEY
               value: "e8140486-54b8-48da-9ec0-58aa1b868c0c"
             - name: HCAPTCHA_SECRET
