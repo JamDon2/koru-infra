@@ -22,7 +22,7 @@ spec:
             - containerPort: 8000
           env:
             - name: APP_URL
-              value: https://koru.jamdon2.dev
+              value: https://koru.cash
             - name: DATABASE_URL
               valueFrom:
                 secretKeyRef:

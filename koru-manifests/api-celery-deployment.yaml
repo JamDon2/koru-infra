@@ -19,10 +19,18 @@ spec:
         - name: koru-api-worker
           image: "ghcr.io/jamdon2/koru-api:sha-fdbe0ff"
           command: ["celery"]
-          args: ["-A", "api.core.celery", "worker", "--loglevel=info", "-P", "gevent"]
+          args:
+            [
+              "-A",
+              "api.core.celery",
+              "worker",
+              "--loglevel=info",
+              "-P",
+              "gevent",
+            ]
           env:
             - name: APP_URL
-              value: https://koru.jamdon2.dev
+              value: https://koru.cash
             - name: DATABASE_URL
               valueFrom:
                 secretKeyRef:

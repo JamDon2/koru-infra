@@ -10,10 +10,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - koru.jamdon2.dev
+        - koru.cash
       secretName: koru-tls-secret # Cert-manager will create this
   rules:
-    - host: koru.jamdon2.dev
+    - host: koru.cash
       http:
         paths:
           - path: /api
