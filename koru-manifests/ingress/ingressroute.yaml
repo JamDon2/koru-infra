@@ -1,0 +1,26 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: koru-ingressroute
+  namespace: default
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`koru.cash`) && PathPrefix(`/api`)
+      kind: Rule
+      services:
+        - name: koru-api-svc
+          port: 80
+    - match: Host(`koru.cash`)
+      kind: Rule
+      services:
+        - name: koru-web-svc
+          port: 80
+  tls:
+    secretName: koru-tls-secret
+    options:
+      name: cloudflare-mtls-tlsoption
+      namespace: default
