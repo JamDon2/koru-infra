@@ -11,6 +11,8 @@ spec:
     repoURL: https://github.com/jamdon2/koru-infra.git
     path: koru-manifests/
     targetRevision: HEAD
+    directory:
+      recurse: true
   destination:
     server: https://kubernetes.default.svc
     namespace: default
