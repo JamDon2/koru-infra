@@ -28,6 +28,8 @@ spec:
                 secretKeyRef:
                   name: koru-api-secret
                   key: DATABASE_URL
+            - name: SIGNUP_ENABLED
+              value: "false"
             - name: JWT_SECRET
               valueFrom:
                 secretKeyRef:
