@@ -19,4 +19,8 @@ master:
 replica:
   replicaCount: 0
 metrics:
-  enabled: false
+  enabled: true
+  serviceMonitor:
+    enabled: true
+  prometheusRule:
+    enabled: true
