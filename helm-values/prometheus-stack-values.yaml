@@ -12,11 +12,8 @@ alertmanager:
         hosts:
           - alertmanager.koru.cash
 grafana:
-  adminPassword:
-    valueFrom:
-      secretKeyRef:
-        name: grafana-admin-password
-        key: password
+  admin:
+    existingSecret: prometheus-stack-auth
   ingress:
     enabled: true
     annotations:
