@@ -12,6 +12,11 @@ alertmanager:
         hosts:
           - alertmanager.koru.cash
 grafana:
+  adminPassword:
+    valueFrom:
+      secretKeyRef:
+        name: grafana-admin-password
+        key: password
   ingress:
     enabled: true
     annotations:
