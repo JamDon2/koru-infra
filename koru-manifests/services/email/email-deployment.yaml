@@ -26,8 +26,13 @@ spec:
                 secretKeyRef:
                   name: koru-email-secret
                   key: RESEND_API_KEY
+            - name: RESEND_AUDIENCE_ID
+              valueFrom:
+                secretKeyRef:
+                  name: koru-email-secret
+                  key: RESEND_AUDIENCE_ID
             - name: EMAIL_FROM
-              value: "Koru <emails@koru.cash>"
+              value: "Koru <hello@koru.cash>"
             - name: RABBITMQ_HOST
               value: rabbitmq.rabbitmq.svc.cluster.local
             - name: RABBITMQ_USER
