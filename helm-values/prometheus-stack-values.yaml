@@ -1,4 +1,13 @@
 alertmanager:
+  alertmanagerSpec:
+    storage:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: longhorn
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 1Gi
   ingress:
     enabled: true
     annotations:
@@ -26,7 +35,21 @@ grafana:
       - secretName: grafana-tls
         hosts:
           - grafana.koru.cash
+  persistence:
+    enabled: true
+    storageClassName: longhorn
+    accessModes: ["ReadWriteOnce"]
+    size: 5Gi
 prometheus:
+  prometheusSpec:
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: longhorn
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 50Gi
   ingress:
     enabled: true
     annotations:
