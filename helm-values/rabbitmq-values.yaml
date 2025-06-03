@@ -18,7 +18,7 @@ master:
 ingress:
   enabled: true
   pathType: Prefix
-  hostname: rabbitmq.k3s.jamdon2.dev
+  hostname: rabbitmq.koru.cash
   tls: true
   annotations:
     kubernetes.io/ingress.class: traefik
