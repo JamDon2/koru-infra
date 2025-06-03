@@ -1,0 +1,39 @@
+alertmanager:
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: traefik
+      cert-manager.io/cluster-issuer: "letsencrypt-prod"
+      traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
+    hosts:
+      - alertmanager.koru.cash
+    tls:
+      - secretName: alertmanager-tls
+        hosts:
+          - alertmanager.koru.cash
+grafana:
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: traefik
+      cert-manager.io/cluster-issuer: "letsencrypt-prod"
+      traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
+    hosts:
+      - grafana.koru.cash
+    tls:
+      - secretName: grafana-tls
+        hosts:
+          - grafana.koru.cash
+prometheus:
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: traefik
+      cert-manager.io/cluster-issuer: "letsencrypt-prod"
+      traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
+    hosts:
+      - prometheus.koru.cash
+    tls:
+      - secretName: prometheus-tls
+        hosts:
+          - prometheus.koru.cash
