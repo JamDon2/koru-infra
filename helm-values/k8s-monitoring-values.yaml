@@ -1,0 +1,8 @@
+destinations:
+  - name: loki
+    type: loki
+    url: http://loki-gateway.monitoring.svc.cluster.local/loki/api/v1/push
+podLogs:
+  enabled: true
+alloy-logs:
+  enabled: true
