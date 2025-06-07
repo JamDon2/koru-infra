@@ -2,12 +2,6 @@ deploymentMode: SingleBinary
 loki:
   storage:
     type: filesystem
-write:
-  persistence:
-    storageClass: longhorn
-read:
-  persistence:
-    storageClass: longhorn
-backend:
+singleBinary:
   persistence:
     storageClass: longhorn
