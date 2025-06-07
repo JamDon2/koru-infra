@@ -1,3 +1,5 @@
+cluster:
+  name: k8s
 destinations:
   - name: loki
     type: loki
