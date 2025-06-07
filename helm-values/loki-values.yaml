@@ -14,6 +14,8 @@ loki:
           period: 24h
   ui:
     enabled: true
+  commonConfig:
+    replication_factor: 1
   # Manually replace config, see: https://github.com/grafana/loki/issues/17561
   config: |
     {{- if .Values.enterprise.enabled}}
