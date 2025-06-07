@@ -1,5 +1,6 @@
 deploymentMode: SingleBinary
 loki:
+  auth_enabled: false
   storage:
     type: filesystem
   schemaConfig:
