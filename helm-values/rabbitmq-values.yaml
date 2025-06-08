@@ -3,18 +3,10 @@ architecture: standalone
 auth:
   existingPasswordSecret: "rabbitmq-auth"
   existingErlangSecret: "rabbitmq-auth"
-master:
-  persistence:
-    enabled: true
-    storageClass: "longhorn-crypto"
-    size: 5Gi
-  resources:
-    requests:
-      cpu: "100m"
-      memory: "256Mi"
-    limits:
-      cpu: "500m"
-      memory: "512Mi"
+persistence:
+  enabled: true
+  storageClass: "longhorn-crypto"
+  size: 5Gi
 ingress:
   enabled: true
   pathType: Prefix
