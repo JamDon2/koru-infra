@@ -6,7 +6,7 @@ auth:
 master:
   persistence:
     enabled: true
-    storageClass: "longhorn"
+    storageClass: "longhorn-crypto"
     size: 5Gi
   resources:
     requests:

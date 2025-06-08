@@ -203,7 +203,7 @@ loki:
 singleBinary:
   replicas: 1
   persistence:
-    storageClass: longhorn
+    storageClass: longhorn-crypto
 read:
   replicas: 0
 write:

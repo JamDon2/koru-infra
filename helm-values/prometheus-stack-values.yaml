@@ -3,7 +3,7 @@ alertmanager:
     storage:
       volumeClaimTemplate:
         spec:
-          storageClassName: longhorn
+          storageClassName: longhorn-crypto
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:
@@ -37,7 +37,7 @@ grafana:
           - grafana.koru.cash
   persistence:
     enabled: true
-    storageClassName: longhorn
+    storageClassName: longhorn-crypto
     accessModes: ["ReadWriteOnce"]
     size: 5Gi
 prometheus:
@@ -46,7 +46,7 @@ prometheus:
     storageSpec:
       volumeClaimTemplate:
         spec:
-          storageClassName: longhorn
+          storageClassName: longhorn-crypto
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:

@@ -8,7 +8,7 @@ auth:
 primary:
   persistence:
     enabled: true
-    storageClass: "longhorn"
+    storageClass: "longhorn-crypto"
     size: 5Gi
   resourcesPreset: "small"
 replica:
