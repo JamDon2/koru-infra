@@ -58,6 +58,16 @@ spec:
                 secretKeyRef:
                   name: koru-api-secret
                   key: HCAPTCHA_SECRET
+            - name: GOCARDLESS_SECRET_ID
+              valueFrom:
+                secretKeyRef:
+                  name: koru-api-secret
+                  key: GOCARDLESS_SECRET_ID
+            - name: GOCARDLESS_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: koru-api-secret
+                  key: GOCARDLESS_SECRET_KEY
           resources:
             requests:
               memory: "256Mi"
