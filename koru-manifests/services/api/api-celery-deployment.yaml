@@ -17,17 +17,9 @@ spec:
         - name: ghcr-creds
       containers:
         - name: koru-api-worker
-          image: "ghcr.io/jamdon2/koru-api:sha-7409313"
+          image: "ghcr.io/jamdon2/koru-api:sha-7a209aa"
           command: ["celery"]
-          args:
-            [
-              "-A",
-              "api.core.celery",
-              "worker",
-              "--loglevel=info",
-              "-P",
-              "gevent",
-            ]
+          args: ["-A", "api.core.celery", "worker", "--loglevel=info", "-P", "gevent"]
           env:
             - name: APP_URL
               value: https://koru.cash
